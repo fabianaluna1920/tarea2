@@ -1,11 +1,13 @@
 #include <iostream>
-gflfylfy
+#include<typeinfo>
+#include<cmath>
 using namespace std;
-enum state;
+enum state{INICIAL,PREPARACION,TRABAJANDO,FINALIZACION};
 extern unsigned long int var_1;
 const float var_2=3.1416;
 const double var_3=123456789.987654321123456789567444433321;
-int short var_4;
+short int var_4;
+const unsigned char letra_a='A';
 
 	/* 1. Se deben declarar dos miembros tipo double para
 	la parte real e imaginaria del numero complejo */
@@ -73,7 +75,7 @@ void declaracion_explicita(void)
 {
 	double oper_1 = 5678983456.44444444444;
 	unsigned long oper_2 = 5e15;
-    double result = 0;
+        double result = 0;
 	
 	result = oper_1 + oper_2;
 	cout<<"5. El tipo de dato de result "<<result<<" en la funcion declaracion_explicita es: "<<typeid(result).name()<<endl;
@@ -84,8 +86,8 @@ void declaracion_explicita(void)
 
 void funcion_amiga(void)
 {
-	const unsigned char letra_a;
-	letra_a = 'A';
+const unsigned char letra_a='A' ;
+	
 }
 
 void funcion_necesitada(void)
@@ -99,7 +101,7 @@ void funcion_necesitada(void)
 
 void state_machine(void)
 {
-	sm_counter;   /* Esta variable debe almacenar un valor entero positivo menor a 256
+static unsigned char sm_counter=0x30;   /* Esta variable debe almacenar un valor entero positivo menor a 256
 	                     Ademas el valor de la variable debe conservarse entre llamados de la funcion
 						 Inicialice esta variable con el valor 0x30;*/
 						 
@@ -133,6 +135,19 @@ void state_machine(void)
 /* 13. Pregunta para profundizar: Suponga que usted declara dos variables int a = -1 y unsigned int b = 2
    Luego suponga que usted compara (en C++) las dos variables para saber cual es mayor. Â¿CuÃ¡l diria C++ que es la mayor entre a y b?
    Â¿Por quÃ©? Â¿CuÃ¡l serÃ­a la forma adecuada de hacer la comparaciÃ³n en C++? */
+/*  solucion 13 
+c++ diria que es mayor a=-1, porque 
+
+ int a=-1;
+ unsigned b=2;
+ if (a>b){
+     cout<<"es mayor a"<<a<<endl;
+ }
+ if (b>a){
+     cout<<"es mayor b"<<a<<endl;
+ }
+
+*/
 
 int main()
 {	/* Espacio para declaraciones en la funcion main */
@@ -146,6 +161,7 @@ int main()
 struct Complex complejo;
 complejo.real=3.5;
 complejo.imag=2;
+
 	
 	/* De esta linea en adelante usted no debe modificar nada */
 	cout<<"1. Complejo es igual a: "<<complejo.real<<((complejo.imag > 0)?"+":"-")<<(abs(complejo.imag))<<"j"<<endl;
