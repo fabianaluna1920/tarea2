@@ -136,7 +136,11 @@ static unsigned char sm_counter=0x30;   /* Esta variable debe almacenar un valor
    Luego suponga que usted compara (en C++) las dos variables para saber cual es mayor. Â¿CuÃ¡l diria C++ que es la mayor entre a y b?
    Â¿Por quÃ©? Â¿CuÃ¡l serÃ­a la forma adecuada de hacer la comparaciÃ³n en C++? */
 /*  solucion 13 
-c++ diria que es mayor a=-1, porque 
+c++ diria que es mayor a=-1
+Aunque sea posible comparar tipos con signo vs sin signo no es aconsejable puesto que el valor cambia mucho( int (tipo entero, longitud 4 bytes) - Con signo: -2147483648 a 2147483647 
+- Sin signo: 0 a 4294967295)
+Por lo que el copilador pone un aviso de warning, ya que no puede preveer todas operaciones que puede hacerse con los numeros que intervienen en las comparaciones, entonces puede darse resultados inesperados 
+como en este caso, que el compilador dice que es mayor a=-1 que B=2.
 
  int a=-1;
  unsigned b=2;
